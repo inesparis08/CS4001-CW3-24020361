@@ -15,7 +15,7 @@ public class PartTimeStaffHire extends StaffHire {
         super(vacancyNumber, designation, jobType, staffName, joiningDate, 
              qualification, appointedBy, joined);
         
-        // init attributes for part-time staff
+        // init attributes for part time staff
         this.workingHour = workingHour;
         this.wagesPerHour = wagesPerHour;
         this.shifts = shifts;
@@ -40,19 +40,19 @@ public class PartTimeStaffHire extends StaffHire {
         return wagesPerHour;
     }
     
-    // Set the wages per hour
+    // set the wages per hour
      
     public void setWagesPerHour(double wagesPerHour) {
         this.wagesPerHour = wagesPerHour;
     }
     
-    //Get the shifts
+    // get the shifts
      
     public String getShifts() {
         return shifts;
     }
     
-    //Set the shifts
+    // set the shifts
      
     public void setShifts(String shifts) {
         if(isJoined() && !terminated) {
@@ -64,47 +64,47 @@ public class PartTimeStaffHire extends StaffHire {
         }
     }
     
-   // Get terminated status
+   // get terminated status
     
     public boolean isTerminated() {
         return terminated;
     }
     
-    //Terminate the part-time staff
+    // terminate part time staff
      
     public void terminateStaff() {
         if(terminated) {
             System.out.println("This staff is already terminated.");
         } else {
-            // Set staff details to empty
+            // set staff details to empty
             setStaffName("");
             setJoiningDate("");
             setQualification("");
             setAppointedBy("");
             setJoined(false);
             
-            // Update the terminated status
+            // update the terminated status
             this.terminated = true;
             System.out.println("Staff has been terminated successfully.");
         }
     }
     
  
-     //Override the display method from the parent class
+     // overide the display method from the parent class
      
     @Override
     public void display() {
-        // Call the display method from the parent class
+        // xall the display method from the parent class
         super.display();
         
-        // Display the attributes specific to part time staff
+        // display the attributes for part time staff
         if(isJoined() && !terminated) {
             System.out.println("Working Hours per Day: " + workingHour);
             System.out.println("Wages per Hour: $" + wagesPerHour);
             System.out.println("Shifts: " + shifts);
             System.out.println("Terminated: " + (terminated ? "Yes" : "No"));
             
-            // Calculate and display the income per day
+            // calculate and display the income per day
             double incomePerDay = workingHour * wagesPerHour;
             System.out.println("Income per Day: $" + incomePerDay);
         } else if(terminated) {
