@@ -10,7 +10,7 @@ public class StaffHire {
     String appointedBy;
     boolean joined;
     
-    // Constructor
+    // Constuctor
     public StaffHire(int vacancyNumber, String designation, String jobType, 
                     String staffName, String joiningDate, String qualification, 
                     String appointedBy, boolean joined) {
@@ -23,8 +23,7 @@ public class StaffHire {
         this.appointedBy = appointedBy;
         this.joined = joined;
     }
-    
-    // Getters and setters
+
     
     // Get vacancy number
     public int getVacancyNumber() {
