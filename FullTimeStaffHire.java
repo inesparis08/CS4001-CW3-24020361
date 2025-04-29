@@ -1,6 +1,6 @@
 
 public class FullTimeStaffHire extends StaffHire {
-    // Instance variables
+    // class variables 
     private double salary;
     private int weeklyFractionalHours;
     
@@ -9,11 +9,11 @@ public class FullTimeStaffHire extends StaffHire {
                             String staffName, String joiningDate, String qualification, 
                             String appointedBy, boolean joined, double salary, 
                             int weeklyFractionalHours) {
-        // Call the superclass constructor
+        // Call the superclass construtor
         super(vacancyNumber, designation, jobType, staffName, joiningDate, 
              qualification, appointedBy, joined);
         
-        // Initialize the attributes specific to full-time staff
+        // init the attributes for the class
         this.salary = salary;
         this.weeklyFractionalHours = weeklyFractionalHours;
     }
@@ -53,7 +53,7 @@ public class FullTimeStaffHire extends StaffHire {
         // Call the display method from the parent class
         super.display();
         
-        // Display the attributes specific to full-time staff
+        // Display the attributes for full-time staff
         if(isJoined()) {
             System.out.println("Salary: $" + salary);
             System.out.println("Weekly Fractional Hours: " + weeklyFractionalHours);
