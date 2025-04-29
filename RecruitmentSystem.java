@@ -118,9 +118,9 @@ public class RecruitmentSystem {
         inputPanel.add(txtTerminateNumber);
     }
     
-    // Make all buttons
+    // make all buttons
     private void addButtons() {
-        // Create buttons
+        // create buttons
         btnAddFullTimeStaff = new JButton("Add Full-Time");
         btnAddPartTimeStaff = new JButton("Add Part-Time");
         btnSetSalary = new JButton("Set Salary");
@@ -129,7 +129,7 @@ public class RecruitmentSystem {
         btnDisplay = new JButton("Display");
         btnDisplayAll = new JButton("Display All");
         
-        // Button actions
+        // button actions
         btnAddFullTimeStaff.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { addFullTimeStaff(); }
         });
@@ -158,7 +158,7 @@ public class RecruitmentSystem {
             public void actionPerformed(ActionEvent e) { displayAllStaff(); }
         });
         
-        // Add to panel
+        // add to panel
         buttonPanel.add(btnAddFullTimeStaff);
         buttonPanel.add(btnAddPartTimeStaff);
         buttonPanel.add(btnSetSalary);
@@ -168,10 +168,10 @@ public class RecruitmentSystem {
         buttonPanel.add(btnDisplayAll);
     }
     
-    // Add a full-time staff
+    // add a full time staff
     private void addFullTimeStaff() {
         try {
-            // Get the values from text boxes
+            // get the values from text boxes
             int vacancyNum = validateAndParseInt(txtVacancyNumber.getText(), "Vacancy Number");
             String designation = validateNotEmpty(txtDesignation.getText(), "Designation");
             String jobType = validateNotEmpty(txtJobType.getText(), "Job Type");
@@ -181,11 +181,11 @@ public class RecruitmentSystem {
             String appointer = validateNotEmpty(txtAppointedBy.getText(), "Appointer");
             boolean joined = chkJoined.isSelected();
             
-            // Get salary info
+            // get salary info
             double salary = validateAndParseDouble(txtSalary.getText(), "Salary");
             int hours = validateAndParseInt(txtWeeklyFractionalHours.getText(), "Hours");
             
-            // Make the new staff
+            // make the new staff
             FullTimeStaffHire staff = new FullTimeStaffHire(
                 vacancyNum, designation, jobType, name, date, 
                 qual, appointer, joined, salary, hours
@@ -205,10 +205,10 @@ public class RecruitmentSystem {
         }
     }
     
-    // Add a part-time staff
+    // add a part time staff
     private void addPartTimeStaff() {
         try {
-            // Get the values from text boxes
+            // get the values from text boxes
             int vacancyNum = validateAndParseInt(txtVacancyNumber.getText(), "Vacancy Number");
             String designation = validateNotEmpty(txtDesignation.getText(), "Designation");
             String jobType = validateNotEmpty(txtJobType.getText(), "Job Type");
@@ -218,12 +218,12 @@ public class RecruitmentSystem {
             String appointer = validateNotEmpty(txtAppointedBy.getText(), "Appointer");
             boolean joined = chkJoined.isSelected();
             
-            // Get part-time specific info
+            // get part time info
             int hours = validateAndParseInt(txtWorkingHour.getText(), "Hours");
             double wage = validateAndParseDouble(txtWagesPerHour.getText(), "Wage");
             String shifts = validateNotEmpty(txtShifts.getText(), "Shifts");
             
-            // Make new staff
+            // make new staff
             PartTimeStaffHire staff = new PartTimeStaffHire(
                 vacancyNum, designation, jobType, name, date, 
                 qual, appointer, joined, hours, wage, shifts
@@ -243,7 +243,7 @@ public class RecruitmentSystem {
         }
     }
     
-    // Set salary for full-time staff
+    // set salary for full time staff
     private void setSalary() {
         try {
             // Get input values
@@ -255,7 +255,7 @@ public class RecruitmentSystem {
             boolean found = false;
             for (StaffHire staff : staffList) {
                 if (staff.getVacancyNumber() == vacancyNum && staff.getStaffName().equals(name)) {
-                    // Check if full-time
+                    // Check if full time
                     if (staff instanceof FullTimeStaffHire) {
                         // Change salary
                         FullTimeStaffHire fullStaff = (FullTimeStaffHire) staff;
@@ -284,7 +284,7 @@ public class RecruitmentSystem {
         }
     }
     
-    // Set shifts for part-time staff
+    // Set shifts for part time staff
     private void setShifts() {
         try {
             // Get input values
@@ -296,7 +296,7 @@ public class RecruitmentSystem {
             boolean found = false;
             for (StaffHire staff : staffList) {
                 if (staff.getVacancyNumber() == vacancyNum && staff.getStaffName().equals(name)) {
-                    // Check if part-time
+                    // Check if part time
                     if (staff instanceof PartTimeStaffHire) {
                         // Change shifts
                         PartTimeStaffHire partStaff = (PartTimeStaffHire) staff;
@@ -325,7 +325,7 @@ public class RecruitmentSystem {
         }
     }
     
-    // Terminate a part-time staff
+    // Terminate a part time staff
     private void terminateStaff() {
         try {
             // Get vacancy number
@@ -335,7 +335,7 @@ public class RecruitmentSystem {
             boolean found = false;
             for (StaffHire staff : staffList) {
                 if (staff.getVacancyNumber() == vacancyNum) {
-                    // Check if part-time
+                    // Check if part time
                     if (staff instanceof PartTimeStaffHire) {
                         // Terminate
                         PartTimeStaffHire partStaff = (PartTimeStaffHire) staff;
@@ -397,7 +397,7 @@ public class RecruitmentSystem {
                 message += "Appointed By: " + staff.getAppointedBy() + "\n";
                 message += "Joined: " + (staff.isJoined() ? "Yes" : "No") + "\n";
                 
-                // Add type-specific info
+                // Add type info
                 if (staff instanceof FullTimeStaffHire) {
                     FullTimeStaffHire fullStaff = (FullTimeStaffHire) staff;
                     message += "Salary: $" + fullStaff.getSalary() + "\n";
@@ -422,12 +422,12 @@ public class RecruitmentSystem {
                 JOptionPane.showMessageDialog(frame, "No staff with number " + displayNumber);
             }
         } catch (Exception ex) {
-            // Show error for any problems
+            // show error for any problems
             JOptionPane.showMessageDialog(frame, ex.getMessage());
         }
     }
     
-    // Get a number
+    // get a number
     private int validateAndParseInt(String input, String field) {
         if(input.equals(""))
             throw new IllegalArgumentException("Enter " + field);
@@ -439,7 +439,7 @@ public class RecruitmentSystem {
         }
     }
     
-    // Get a decimal
+    // get a decimal
     private double validateAndParseDouble(String input, String field) {
         if(input.equals(""))
             throw new IllegalArgumentException("Enter " + field);
@@ -451,14 +451,14 @@ public class RecruitmentSystem {
         }
     }
     
-    // Check not empty
+    // check not empty
     private String validateNotEmpty(String input, String field) {
         if(input.equals(""))
             throw new IllegalArgumentException("Enter " + field);
         return input;
     }
     
-    // Get display number
+    // get display number
     private int validateAndParseDisplayNumber(String input) {
         if(input.equals(""))
             throw new IllegalArgumentException("Enter a number");
@@ -470,9 +470,9 @@ public class RecruitmentSystem {
         }
     }
     
-    // Clear all boxes
+    // clear all boxes
     private void clearInputFields() {
-        // Clear everything
+        // clear everything
         txtVacancyNumber.setText("");
         txtDesignation.setText("");
         txtJobType.setText("");
