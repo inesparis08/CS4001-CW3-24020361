@@ -1,40 +1,40 @@
 
 public class PartTimeStaffHire extends StaffHire {
-    // Instance variables
+    // class variables 
     private int workingHour;
     private double wagesPerHour;
     private String shifts;
     private boolean terminated;
     
-   //constructior
+   // constructior
     public PartTimeStaffHire(int vacancyNumber, String designation, String jobType, 
                             String staffName, String joiningDate, String qualification, 
                             String appointedBy, boolean joined, int workingHour, 
                             double wagesPerHour, String shifts) {
-        // Call the superclass constructor
+        // call the superclass constructor
         super(vacancyNumber, designation, jobType, staffName, joiningDate, 
              qualification, appointedBy, joined);
         
-        // Initialize the attributes specific to part-time staff
+        // init attributes for part-time staff
         this.workingHour = workingHour;
         this.wagesPerHour = wagesPerHour;
         this.shifts = shifts;
-        this.terminated = false;  // Initially not terminated
+        this.terminated = false;  
     }
     
-    //Get the working hour
+    // get the working hour
     
     public int getWorkingHour() {
         return workingHour;
     }
     
-    //Set the working hour
+    // set the working hour
     
     public void setWorkingHour(int workingHour) {
         this.workingHour = workingHour;
     }
     
-    // Get the wages per hour
+    // get the wages per hour
     
     public double getWagesPerHour() {
         return wagesPerHour;
@@ -97,7 +97,7 @@ public class PartTimeStaffHire extends StaffHire {
         // Call the display method from the parent class
         super.display();
         
-        // Display the attributes specific to part-time staff
+        // Display the attributes specific to part time staff
         if(isJoined() && !terminated) {
             System.out.println("Working Hours per Day: " + workingHour);
             System.out.println("Wages per Hour: $" + wagesPerHour);
