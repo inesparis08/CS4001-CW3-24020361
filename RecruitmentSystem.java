@@ -371,7 +371,7 @@ public class RecruitmentSystem {
             int displayNumber = validateAndParseDisplayNumber(txtDisplayNumber.getText());
             
             // Check if number is valid
-            if (displayNumber >= 0 && displayNumber < staffList.size()) {
+            if (displayNumber >= 0 displayNumber < staffList.size()) {
                 // Get the staff from list
                 StaffHire staff = staffList.get(displayNumber);
                 
@@ -380,11 +380,11 @@ public class RecruitmentSystem {
                 
                 // Add staff type
                 if (staff instanceof FullTimeStaffHire) {
-                    message += "FULL-TIME STAFF DETAILS\n\n";
+                    message += "FULL-TIME STAFF DETAILS";
                 } else if (staff instanceof PartTimeStaffHire) {
-                    message += "PART-TIME STAFF DETAILS\n\n";
+                    message += "PART-TIME STAFF DETAILS";
                 } else {
-                    message += "STAFF DETAILS\n\n";
+                    message += "STAFF DETAILS";
                 }
                 
                 // Add basic info
