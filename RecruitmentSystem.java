@@ -1,8 +1,8 @@
 import javax.swing.*;
-import java.awt.*; // colour 
-import java.awt.event.*; // button 
+import java.awt.*; 
+import java.awt.event.*; 
 import java.util.*;
-// GUI 
+ 
 
 public class RecruitmentSystem {
     // List for staff
